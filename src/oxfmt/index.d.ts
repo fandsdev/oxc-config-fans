@@ -1,5 +1,8 @@
 import type { OxfmtConfig } from 'oxfmt'
 
+// Re-export OxfmtConfig to support composite
+export type { OxfmtConfig }
+
 interface DefineConfigOptions {
 	/**
 	 * @link https://oxc.rs/docs/guide/usage/formatter/ignore-files.html#ignorepatterns

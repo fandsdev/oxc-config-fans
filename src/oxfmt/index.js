@@ -25,17 +25,19 @@ export function defineConfig(options = {}, overrides = {}) {
 		sortImports = true,
 	} = options
 
-	const sortTailwindcssConfig = sortTailwindcss
-		? sortTailwindcss === true
+	const sortTailwindcssConfig =
+		sortTailwindcss === true
 			? DEFAULT_SORT_TAILWINDCSS_CONFIG
-			: { ...DEFAULT_SORT_TAILWINDCSS_CONFIG, ...sortTailwindcss }
-		: false
+			: sortTailwindcss === false
+				? false
+				: { ...DEFAULT_SORT_TAILWINDCSS_CONFIG, ...sortTailwindcss }
 
-	const sortImportsConfig = sortImports
-		? sortImports === true
+	const sortImportsConfig =
+		sortImports === true
 			? DEFAULT_SORT_IMPORTS_CONFIG
-			: { ...DEFAULT_SORT_IMPORTS_CONFIG, ...sortImports }
-		: false
+			: sortImports === false
+				? false
+				: { ...DEFAULT_SORT_IMPORTS_CONFIG, ...sortImports }
 
 	return defineOxfmtConfig({
 		ignorePatterns: [...ignorePatterns],
