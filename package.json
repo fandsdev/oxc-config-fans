@@ -58,9 +58,6 @@
     "oxlint-tsgolint": "^0.21.1"
   },
   "peerDependenciesMeta": {
-    "@e18e/eslint-plugin": {
-      "optional": true
-    },
     "@tanstack/eslint-plugin-query": {
       "optional": true
     },

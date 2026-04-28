@@ -1,15 +1,18 @@
 import type { OxlintConfig } from 'oxlint'
 
 export type OxcConfigFansDefineOxlintOptions = {
-	unicorn?: boolean
-	typescript?: boolean
-	vue?: boolean | { a11y?: boolean }
-	perfectionist?: boolean
-	e18e?: boolean
-	opinionated?: boolean
+	ignorePatterns?: string[]
 	categories?: NonNullable<OxlintConfig['categories']>
 	options?: NonNullable<OxlintConfig['options']>
-	ignorePatterns?: string[]
+	typescript?: boolean
+	unicorn?: boolean
+	vue?: boolean | { a11y?: boolean }
+	astro?: boolean
+	query?: boolean
+	test?: boolean
+	e18e?: boolean
+	perfectionist?: boolean
+	opinionated?: boolean
 	extends?: OxlintConfig[]
 }
 

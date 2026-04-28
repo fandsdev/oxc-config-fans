@@ -17,18 +17,18 @@ import vueConfig from './configs/vue.js'
 
 export function defineConfig(options = {}) {
 	const {
-		astro = false,
-		e18e = true,
-		opinionated = true,
-		perfectionist = false,
-		query = false,
-		test = false,
+		ignorePatterns = [],
+		categories,
+		options: oxlintOptions,
 		typescript = false,
 		unicorn = true,
 		vue = false,
-		categories,
-		options: oxlintOptions,
-		ignorePatterns = [],
+		astro = false,
+		query = false,
+		test = false,
+		e18e = true,
+		perfectionist = false,
+		opinionated = true,
 		extends: extendsOption = [],
 	} = options
 
