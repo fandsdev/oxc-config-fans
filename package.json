@@ -25,6 +25,9 @@
     "oxfmt": "^0.47.0",
     "typescript": "^6.0.3"
   },
+  "peerDependencies": {
+    "oxfmt": "^0.47.0"
+  },
   "engines": {
     "node": "^20.19.0 || >=22.0.0"
   },
