@@ -14,6 +14,7 @@
     "./package.json": "./package.json"
   },
   "scripts": {
+    "prepare": "simple-git-hooks",
     "test:format": "oxfmt --check",
     "test:types": "tsc --noEmit",
     "test:dedupe": "pnpm dedupe --check",
@@ -22,11 +23,19 @@
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
+    "nano-staged": "^1.0.2",
     "oxfmt": "^0.47.0",
+    "simple-git-hooks": "^2.13.1",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
     "oxfmt": "^0.47.0"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "./node_modules/.bin/nano-staged"
+  },
+  "nano-staged": {
+    "*.{js,ts,json,md}": "oxfmt"
   },
   "engines": {
     "node": "^20.19.0 || >=22.0.0"
