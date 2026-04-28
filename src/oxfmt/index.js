@@ -18,6 +18,16 @@ const DEFAULT_SORT_IMPORTS_CONFIG = {
 	order: 'asc',
 }
 
+function resolveOptionalMergedConfig(defaultConfig, value) {
+	if (value === true) {
+		return defaultConfig
+	}
+	if (value === false) {
+		return false
+	}
+	return { ...defaultConfig, ...value }
+}
+
 export function defineConfig(options = {}, overrides = {}) {
 	const {
 		ignorePatterns = [],
@@ -25,19 +35,14 @@ export function defineConfig(options = {}, overrides = {}) {
 		sortImports = true,
 	} = options
 
-	const sortTailwindcssConfig =
-		sortTailwindcss === true
-			? DEFAULT_SORT_TAILWINDCSS_CONFIG
-			: sortTailwindcss === false
-				? false
-				: { ...DEFAULT_SORT_TAILWINDCSS_CONFIG, ...sortTailwindcss }
-
-	const sortImportsConfig =
-		sortImports === true
-			? DEFAULT_SORT_IMPORTS_CONFIG
-			: sortImports === false
-				? false
-				: { ...DEFAULT_SORT_IMPORTS_CONFIG, ...sortImports }
+	const sortTailwindcssConfig = resolveOptionalMergedConfig(
+		DEFAULT_SORT_TAILWINDCSS_CONFIG,
+		sortTailwindcss,
+	)
+	const sortImportsConfig = resolveOptionalMergedConfig(
+		DEFAULT_SORT_IMPORTS_CONFIG,
+		sortImports,
+	)
 
 	return defineOxfmtConfig({
 		ignorePatterns: [...ignorePatterns],
