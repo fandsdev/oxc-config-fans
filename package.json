@@ -14,7 +14,10 @@
     "./package.json": "./package.json"
   },
   "scripts": {
-    "test": "oxfmt --check",
+    "test:format": "oxfmt --check",
+    "test:types": "tsc --noEmit",
+    "test:dedupe": "pnpm dedupe --check",
+    "test": "pnpm run /^test:/",
     "format": "oxfmt"
   },
   "devDependencies": {
