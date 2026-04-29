@@ -6,6 +6,7 @@ export type OxcConfigFansDefineOxlintOptions = {
 	options?: NonNullable<OxlintConfig['options']>
 	typescript?: boolean
 	vue?: boolean | { a11y?: boolean }
+	react?: boolean
 	nextjs?: boolean
 	astro?: boolean
 	query?: boolean

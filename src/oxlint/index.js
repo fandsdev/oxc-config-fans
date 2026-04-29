@@ -11,6 +11,7 @@ import opinionatedConfig from './configs/opinionated.js'
 import perfectionistConfig from './configs/perfectionist.js'
 import promiseConfig from './configs/promise.js'
 import queryConfig from './configs/query.js'
+import reactConfig from './configs/react.js'
 import testConfig from './configs/test.js'
 import typescriptConfig from './configs/typescript.js'
 import unicornConfig from './configs/unicorn.js'
@@ -24,6 +25,7 @@ export function defineConfig(options = {}) {
 		options: oxlintOptions,
 		typescript = false,
 		vue = false,
+		react = false,
 		nextjs = false,
 		astro = false,
 		query = false,
@@ -55,8 +57,12 @@ export function defineConfig(options = {}) {
 		}
 	}
 
+	if (react !== false) {
+		extendsList.push(reactConfig)
+	}
+
 	if (nextjs !== false) {
-		extendsList.push(nextjsConfig)
+		extendsList.push(reactConfig, nextjsConfig)
 	}
 
 	if (astro !== false) {
