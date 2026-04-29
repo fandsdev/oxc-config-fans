@@ -72,7 +72,15 @@ await migrate(allConfigs, undefined, {
 	jsPlugins: true,
 })
 
-const { unsupported, nursery } = reporter.getSkippedRulesByCategory()
+// not-implemented = migrate knows the rule but has no oxlint equivalent to output.
+// These are effectively unsupported from the user's perspective.
+const {
+	'not-implemented': notImplemented,
+	unsupported,
+	nursery,
+} = reporter.getSkippedRulesByCategory()
+unsupported.push(...notImplemented)
+
 const sorted = (arr: string[]) => [...new Set(arr)].toSorted()
 
 const u = sorted(unsupported)
