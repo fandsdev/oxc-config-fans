@@ -18,6 +18,16 @@ const DEFAULT_SORT_IMPORTS_CONFIG = {
 	order: 'asc',
 }
 
+function resolveOptionalMergedConfig(defaultConfig, value) {
+	if (value === true) {
+		return defaultConfig
+	}
+	if (value === false) {
+		return false
+	}
+	return { ...defaultConfig, ...value }
+}
+
 export function defineConfig(options = {}, overrides = {}) {
 	const {
 		ignorePatterns = [],
@@ -25,21 +35,16 @@ export function defineConfig(options = {}, overrides = {}) {
 		sortImports = true,
 	} = options
 
-	const sortTailwindcssConfig =
-		sortTailwindcss === true
-			? DEFAULT_SORT_TAILWINDCSS_CONFIG
-			: sortTailwindcss === false
-				? false
-				: { ...DEFAULT_SORT_TAILWINDCSS_CONFIG, ...sortTailwindcss }
+	const sortTailwindcssConfig = resolveOptionalMergedConfig(
+		DEFAULT_SORT_TAILWINDCSS_CONFIG,
+		sortTailwindcss,
+	)
+	const sortImportsConfig = resolveOptionalMergedConfig(
+		DEFAULT_SORT_IMPORTS_CONFIG,
+		sortImports,
+	)
 
-	const sortImportsConfig =
-		sortImports === true
-			? DEFAULT_SORT_IMPORTS_CONFIG
-			: sortImports === false
-				? false
-				: { ...DEFAULT_SORT_IMPORTS_CONFIG, ...sortImports }
-
-	return defineOxfmtConfig({
+	const config = {
 		ignorePatterns: [...ignorePatterns],
 		arrowParens: 'avoid',
 		printWidth: 80,
@@ -49,5 +54,12 @@ export function defineConfig(options = {}, overrides = {}) {
 		sortTailwindcss: sortTailwindcssConfig,
 		sortImports: sortImportsConfig,
 		...overrides,
-	})
+	}
+
+	// Temporary workaround caused by https://github.com/oxc-project/oxc/pull/21919
+	if (config.sortTailwindcss === false) {
+		delete config.sortTailwindcss
+	}
+
+	return defineOxfmtConfig(config)
 }

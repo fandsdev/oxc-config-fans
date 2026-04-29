@@ -1,7 +1,7 @@
 {
   "name": "oxc-config-fans",
   "version": "0.0.2",
-  "description": "Opinionated oxfmt shareable config by FANS",
+  "description": "Opinionated OXC (oxlint + oxfmt) shareable configs by FANS",
   "license": "MIT",
   "author": "Eduard Aksamitov <e@euaaaio.ru>",
   "repository": "fandsdev/oxc-config-fans",
@@ -11,25 +11,65 @@
       "types": "./src/oxfmt/index.d.ts",
       "import": "./src/oxfmt/index.js"
     },
+    "./oxlint": {
+      "types": "./src/oxlint/index.d.ts",
+      "import": "./src/oxlint/index.js"
+    },
     "./package.json": "./package.json"
   },
   "scripts": {
     "prepare": "simple-git-hooks",
     "test:format": "oxfmt --check",
     "test:types": "tsc --noEmit",
+    "test:lint": "oxlint",
     "test:dedupe": "pnpm dedupe --check",
     "test": "pnpm run /^test:/",
+    "build": "tsx scripts/oxgen.ts",
     "format": "oxfmt"
   },
   "devDependencies": {
+    "@e18e/eslint-plugin": "^0.4.1",
+    "@oxlint/migrate": "1.61.0",
+    "@tanstack/eslint-plugin-query": "^5.100.6",
     "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "eslint-config-fans": "github:fandsdev/eslint-config-fans#next",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-de-morgan": "^2.1.1",
+    "eslint-plugin-perfectionist": "^5.9.0",
+    "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "nano-staged": "^1.0.2",
     "oxfmt": "^0.47.0",
+    "oxlint": "^1.61.0",
+    "oxlint-tsgolint": "^0.21.1",
     "simple-git-hooks": "^2.13.1",
+    "tsx": "^4.21.0",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
-    "oxfmt": "^0.47.0"
+    "@e18e/eslint-plugin": "^0.4.1",
+    "@tanstack/eslint-plugin-query": "^5.100.6",
+    "eslint-plugin-astro": "^1.7.0",
+    "eslint-plugin-de-morgan": "^2.1.1",
+    "eslint-plugin-perfectionist": "^5.9.0",
+    "eslint-plugin-vuejs-accessibility": "^2.5.0",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.61.0",
+    "oxlint-tsgolint": "^0.21.1"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/eslint-plugin-query": {
+      "optional": true
+    },
+    "eslint-plugin-astro": {
+      "optional": true
+    },
+    "eslint-plugin-perfectionist": {
+      "optional": true
+    },
+    "eslint-plugin-vuejs-accessibility": {
+      "optional": true
+    }
   },
   "simple-git-hooks": {
     "pre-commit": "./node_modules/.bin/nano-staged"
