@@ -53,6 +53,7 @@ export function defineConfig(options = {}, overrides = {}) {
 		singleQuote: true,
 		sortTailwindcss: sortTailwindcssConfig,
 		sortImports: sortImportsConfig,
+		...overrides,
 	}
 
 	// Temporary workaround caused by https://github.com/oxc-project/oxc/pull/21919
@@ -60,5 +61,5 @@ export function defineConfig(options = {}, overrides = {}) {
 		delete config.sortTailwindcss
 	}
 
-	return defineOxfmtConfig({ ...config, ...overrides })
+	return defineOxfmtConfig(config)
 }
