@@ -1,9 +1,6 @@
 import { defineConfig } from 'oxlint'
 
 export default defineConfig({
-	env: {
-		builtin: true,
-	},
 	overrides: [
 		{
 			files: ['**/*.vue', '**/*.astro'],

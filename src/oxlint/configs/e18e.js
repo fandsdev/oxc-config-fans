@@ -1,9 +1,6 @@
 import { defineConfig } from 'oxlint'
 
 export default defineConfig({
-	env: {
-		builtin: true,
-	},
 	jsPlugins: ['@e18e/eslint-plugin'],
 	rules: {
 		'e18e/prefer-array-at': 'error',

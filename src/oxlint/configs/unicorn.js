@@ -1,9 +1,6 @@
 import { defineConfig } from 'oxlint'
 
 export default defineConfig({
-	env: {
-		builtin: true,
-	},
 	plugins: ['unicorn'],
 	rules: {
 		'no-negated-condition': 'off',

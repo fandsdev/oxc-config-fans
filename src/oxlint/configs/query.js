@@ -1,9 +1,6 @@
 import { defineConfig } from 'oxlint'
 
 export default defineConfig({
-	env: {
-		builtin: true,
-	},
 	jsPlugins: ['@tanstack/eslint-plugin-query'],
 	rules: {
 		'@tanstack/query/exhaustive-deps': 'error',

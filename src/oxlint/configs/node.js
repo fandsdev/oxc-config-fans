@@ -2,7 +2,6 @@ import { defineConfig } from 'oxlint'
 
 export default defineConfig({
 	env: {
-		builtin: true,
 		node: true,
 	},
 	plugins: ['node'],

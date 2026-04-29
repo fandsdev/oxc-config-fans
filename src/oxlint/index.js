@@ -1,5 +1,6 @@
 import { defineConfig as defineOxlintConfig } from 'oxlint'
 import astroConfig from './configs/astro.js'
+import baseConfig from './configs/base.js'
 import deMorganConfig from './configs/de-morgan.js'
 import e18eConfig from './configs/e18e.js'
 import importsConfig from './configs/imports.js'
@@ -33,6 +34,7 @@ export function defineConfig(options = {}) {
 	} = options
 
 	const extendsList = [
+		baseConfig,
 		javascriptConfig,
 		importsConfig,
 		promiseConfig,
