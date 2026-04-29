@@ -3,8 +3,10 @@ import { defineConfig } from 'oxlint'
 export default defineConfig({
 	plugins: ['unicorn'],
 	rules: {
-		'no-negated-condition': 'off',
+		// Disabled, unicorn/no-nested-ternary covers it.
 		'no-nested-ternary': 'off',
+
+		// Disabled to match eslint-config-fans.
 		'unicorn/consistent-function-scoping': 'off',
 		'unicorn/explicit-length-check': 'off',
 		'unicorn/filename-case': 'off',
@@ -17,14 +19,17 @@ export default defineConfig({
 		'unicorn/no-useless-undefined': 'off',
 		'unicorn/prefer-dom-node-dataset': 'off',
 		'unicorn/prefer-global-this': 'off',
+
+		// Enabled by the oxlint suspicious category, but off in unicorn/recommended.
 		'unicorn/require-post-message-target-origin': 'off',
+
+		// unicorn/recommended rules not covered by base categories.
 		'unicorn/catch-error-name': 'error',
 		'unicorn/consistent-assert': 'error',
 		'unicorn/consistent-date-clone': 'error',
 		'unicorn/consistent-empty-array-spread': 'error',
 		'unicorn/consistent-existence-index-check': 'error',
 		'unicorn/consistent-template-literal-escape': 'error',
-		'unicorn/custom-error-definition': 'error',
 		'unicorn/empty-brace-spaces': 'error',
 		'unicorn/error-message': 'error',
 		'unicorn/escape-case': 'error',
@@ -38,7 +43,6 @@ export default defineConfig({
 		'unicorn/no-immediate-mutation': 'error',
 		'unicorn/no-lonely-if': 'error',
 		'unicorn/no-magic-array-flat-depth': 'error',
-		'unicorn/no-negated-condition': 'error',
 		'unicorn/no-negation-in-equality-check': 'error',
 		'unicorn/no-nested-ternary': 'error',
 		'unicorn/no-new-buffer': 'error',
@@ -53,7 +57,6 @@ export default defineConfig({
 		'unicorn/no-unreadable-iife': 'error',
 		'unicorn/no-useless-collection-argument': 'error',
 		'unicorn/no-useless-error-capture-stack-trace': 'error',
-		'unicorn/no-useless-iterator-to-array': 'error',
 		'unicorn/no-useless-promise-resolve-reject': 'error',
 		'unicorn/no-useless-switch-case': 'error',
 		'unicorn/no-zero-fractions': 'error',
@@ -76,7 +79,6 @@ export default defineConfig({
 		'unicorn/prefer-dom-node-remove': 'error',
 		'unicorn/prefer-dom-node-text-content': 'error',
 		'unicorn/prefer-event-target': 'error',
-		'unicorn/prefer-import-meta-properties': 'error',
 		'unicorn/prefer-includes': 'error',
 		'unicorn/prefer-keyboard-event-key': 'error',
 		'unicorn/prefer-logical-operator-over-ternary': 'error',
@@ -119,5 +121,12 @@ export default defineConfig({
 		'unicorn/switch-case-break-position': 'error',
 		'unicorn/text-encoding-identifier-case': 'error',
 		'unicorn/throw-new-error': 'error',
+
+		// Nursery rules enabled to match unicorn/recommended.
+		'unicorn/no-useless-iterator-to-array': 'error',
+
+		// Additional rules enabled by eslint-config-fans.
+		'unicorn/custom-error-definition': 'error',
+		'unicorn/prefer-import-meta-properties': 'error',
 	},
 })
