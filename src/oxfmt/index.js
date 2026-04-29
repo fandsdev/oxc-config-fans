@@ -44,7 +44,7 @@ export function defineConfig(options = {}, overrides = {}) {
 		sortImports,
 	)
 
-	return defineOxfmtConfig({
+	const config = {
 		ignorePatterns: [...ignorePatterns],
 		arrowParens: 'avoid',
 		printWidth: 80,
@@ -53,6 +53,12 @@ export function defineConfig(options = {}, overrides = {}) {
 		singleQuote: true,
 		sortTailwindcss: sortTailwindcssConfig,
 		sortImports: sortImportsConfig,
-		...overrides,
-	})
+	}
+
+	// Temporary workaround caused by https://github.com/oxc-project/oxc/pull/21919
+	if (config.sortTailwindcss === false) {
+		delete config.sortTailwindcss
+	}
+
+	return defineOxfmtConfig({ ...config, ...overrides })
 }
