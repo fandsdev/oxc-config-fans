@@ -5,6 +5,7 @@ import deMorganConfig from './configs/de-morgan.js'
 import e18eConfig from './configs/e18e.js'
 import importsConfig from './configs/imports.js'
 import javascriptConfig from './configs/javascript.js'
+import nextjsConfig from './configs/nextjs.js'
 import nodeConfig from './configs/node.js'
 import opinionatedConfig from './configs/opinionated.js'
 import perfectionistConfig from './configs/perfectionist.js'
@@ -23,6 +24,7 @@ export function defineConfig(options = {}) {
 		options: oxlintOptions,
 		typescript = false,
 		vue = false,
+		nextjs = false,
 		astro = false,
 		query = false,
 		test = false,
@@ -51,6 +53,10 @@ export function defineConfig(options = {}) {
 		if (typeof vue === 'object' && vue.a11y) {
 			extendsList.push(vueA11yConfig)
 		}
+	}
+
+	if (nextjs !== false) {
+		extendsList.push(nextjsConfig)
 	}
 
 	if (astro !== false) {
