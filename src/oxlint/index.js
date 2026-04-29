@@ -22,7 +22,6 @@ export function defineConfig(options = {}) {
 		categories,
 		options: oxlintOptions,
 		typescript = false,
-		unicorn = true,
 		vue = false,
 		astro = false,
 		query = false,
@@ -40,11 +39,8 @@ export function defineConfig(options = {}) {
 		promiseConfig,
 		nodeConfig,
 		deMorganConfig,
+		unicornConfig,
 	]
-
-	if (unicorn !== false) {
-		extendsList.push(unicornConfig)
-	}
 
 	if (typescript !== false) {
 		extendsList.push(typescriptConfig)

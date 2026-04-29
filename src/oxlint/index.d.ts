@@ -5,7 +5,6 @@ export type OxcConfigFansDefineOxlintOptions = {
 	categories?: NonNullable<OxlintConfig['categories']>
 	options?: NonNullable<OxlintConfig['options']>
 	typescript?: boolean
-	unicorn?: boolean
 	vue?: boolean | { a11y?: boolean }
 	astro?: boolean
 	query?: boolean
