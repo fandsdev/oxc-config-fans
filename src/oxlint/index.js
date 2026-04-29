@@ -12,9 +12,9 @@ import perfectionistConfig from './configs/perfectionist.js'
 import promiseConfig from './configs/promise.js'
 import queryConfig from './configs/query.js'
 import reactConfig from './configs/react.js'
-import testConfig from './configs/test.js'
 import typescriptConfig from './configs/typescript.js'
 import unicornConfig from './configs/unicorn.js'
+import vitestConfig from './configs/vitest.js'
 import vueA11yConfig from './configs/vue-a11y.js'
 import vueConfig from './configs/vue.js'
 
@@ -29,7 +29,7 @@ export function defineConfig(options = {}) {
 		nextjs = false,
 		astro = false,
 		query = false,
-		test = false,
+		vitest = false,
 		e18e = true,
 		perfectionist = false,
 		opinionated = true,
@@ -73,8 +73,8 @@ export function defineConfig(options = {}) {
 		extendsList.push(queryConfig)
 	}
 
-	if (test !== false) {
-		extendsList.push(testConfig)
+	if (vitest !== false) {
+		extendsList.push(vitestConfig)
 	}
 
 	if (perfectionist !== false) {

@@ -10,7 +10,7 @@ export type OxcConfigFansDefineOxlintOptions = {
 	nextjs?: boolean
 	astro?: boolean
 	query?: boolean
-	test?: boolean
+	vitest?: boolean
 	e18e?: boolean
 	perfectionist?: boolean
 	opinionated?: boolean
