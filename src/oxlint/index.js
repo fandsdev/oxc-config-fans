@@ -62,7 +62,10 @@ export function defineConfig(options = {}) {
 	}
 
 	if (nextjs !== false) {
-		extendsList.push(reactConfig, nextjsConfig)
+		if (react === false) {
+			extendsList.push(reactConfig)
+		}
+		extendsList.push(nextjsConfig)
 	}
 
 	if (astro !== false) {
