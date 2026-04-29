@@ -32,7 +32,7 @@ export function defineConfig(options = {}) {
 		vitest = false,
 		e18e = true,
 		perfectionist = false,
-		opinionated = true,
+		opinionated = false,
 		extends: extendsOption = [],
 	} = options
 

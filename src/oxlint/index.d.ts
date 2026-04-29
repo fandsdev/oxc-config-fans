@@ -1,6 +1,6 @@
 import type { OxlintConfig } from 'oxlint'
 
-export type OxcConfigFansDefineOxlintOptions = {
+export interface OxcConfigFansDefineOxlintOptions {
 	/**
 	 * Glob patterns for files and directories to ignore.
 	 *
@@ -85,7 +85,7 @@ export type OxcConfigFansDefineOxlintOptions = {
 	 * Enable e18e (ecosystem performance) lint rules.
 	 *
 	 * @link https://github.com/e18e/eslint-plugin
-	 * @default false
+	 * @default true
 	 */
 	e18e?: boolean
 
