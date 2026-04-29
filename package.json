@@ -1,6 +1,6 @@
 {
   "name": "oxc-config-fans",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Opinionated OXC (oxlint + oxfmt) shareable configs by FANS",
   "license": "MIT",
   "author": "Eduard Aksamitov <e@euaaaio.ru>",
