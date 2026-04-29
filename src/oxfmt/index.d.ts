@@ -5,6 +5,8 @@ export type { OxfmtConfig }
 
 interface DefineConfigOptions {
 	/**
+	 * Glob patterns for files and directories to ignore.
+	 *
 	 * @link https://oxc.rs/docs/guide/usage/formatter/ignore-files.html#ignorepatterns
 	 * @default []
 	 */
