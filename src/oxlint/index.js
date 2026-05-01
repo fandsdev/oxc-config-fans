@@ -1,5 +1,4 @@
 import { defineConfig as defineOxlintConfig } from 'oxlint'
-import astroConfig from './configs/astro.js'
 import baseConfig from './configs/base.js'
 import deMorganConfig from './configs/de-morgan.js'
 import e18eConfig from './configs/e18e.js'
@@ -27,7 +26,6 @@ export function defineConfig(options = {}) {
 		vue = false,
 		react = false,
 		nextjs = false,
-		astro = false,
 		query = false,
 		vitest = false,
 		e18e = true,
@@ -66,10 +64,6 @@ export function defineConfig(options = {}) {
 			extendsList.push(reactConfig)
 		}
 		extendsList.push(nextjsConfig)
-	}
-
-	if (astro !== false) {
-		extendsList.push(astroConfig)
 	}
 
 	if (query !== false) {

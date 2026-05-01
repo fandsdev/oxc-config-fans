@@ -3,23 +3,12 @@ import { defineConfig } from 'oxlint'
 export default defineConfig({
 	overrides: [
 		{
-			files: ['**/*.vue', '**/*.astro'],
+			files: ['**/*.vue'],
 			rules: {
 				'unicorn/filename-case': [
 					'error',
 					{
 						case: 'pascalCase',
-					},
-				],
-			},
-		},
-		{
-			files: ['**/pages/**/*.astro'],
-			rules: {
-				'unicorn/filename-case': [
-					'error',
-					{
-						case: 'camelCase',
 					},
 				],
 			},

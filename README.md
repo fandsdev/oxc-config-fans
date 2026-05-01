@@ -48,7 +48,6 @@ export default defineConfig({
 | `vue`           | `false` | Enable Vue rules (`{ a11y: true }`) |
 | `react`         | `false` | Enable React rules                  |
 | `nextjs`        | `false` | Enable Next.js rules                |
-| `astro`         | `false` | Enable Astro rules                  |
 | `query`         | `false` | Enable TanStack Query rules         |
 | `vitest`        | `false` | Enable Vitest rules                 |
 | `e18e`          | `true`  | Enable e18e modernization rules     |

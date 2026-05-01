@@ -26,9 +26,6 @@ importers:
       eslint-config-fans:
         specifier: github:fandsdev/eslint-config-fans#next
         version: https://codeload.github.com/fandsdev/eslint-config-fans/tar.gz/09dcb9d1592a56332db4cf2115114ed03852d759(@typescript-eslint/utils@8.59.1(eslint@10.2.1)(typescript@6.0.3))(eslint@10.2.1)(oxlint@1.62.0(oxlint-tsgolint@0.21.1))(prettier@3.8.3)(typescript@6.0.3)
-      eslint-plugin-astro:
-        specifier: ^1.7.0
-        version: 1.7.0(eslint@10.2.1)
       eslint-plugin-de-morgan:
         specifier: ^2.1.1
         version: 2.1.1(eslint@10.2.1)

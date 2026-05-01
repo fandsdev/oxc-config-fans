@@ -58,14 +58,6 @@ export interface OxcConfigFansDefineOxlintOptions {
 	nextjs?: boolean
 
 	/**
-	 * Enable Astro-specific lint rules.
-	 *
-	 * @link https://oxc.rs/docs/guide/usage/linter/plugins#astro
-	 * @default false
-	 */
-	astro?: boolean
-
-	/**
 	 * Enable TanStack Query lint rules.
 	 *
 	 * @link https://tanstack.com/query/latest/docs/eslint/eslint-plugin-query
