@@ -10,6 +10,7 @@ import opinionatedConfig from './configs/opinionated.js'
 import perfectionistConfig from './configs/perfectionist.js'
 import promiseConfig from './configs/promise.js'
 import queryConfig from './configs/query.js'
+import reactCompilerConfig from './configs/react-compiler.js'
 import reactConfig from './configs/react.js'
 import typescriptConfig from './configs/typescript.js'
 import unicornConfig from './configs/unicorn.js'
@@ -64,6 +65,25 @@ export function defineConfig(options = {}) {
 			extendsList.push(reactConfig)
 		}
 		extendsList.push(nextjsConfig)
+	}
+
+	const reactActive = react !== false
+	const nextjsActive = nextjs !== false
+	if (reactActive || nextjsActive) {
+		let compilerEnabled = true
+		if (reactActive && typeof react === 'object' && react.compiler === false) {
+			compilerEnabled = false
+		}
+		if (
+			nextjsActive &&
+			typeof nextjs === 'object' &&
+			nextjs.compiler === false
+		) {
+			compilerEnabled = false
+		}
+		if (compilerEnabled) {
+			extendsList.push(reactCompilerConfig)
+		}
 	}
 
 	if (query !== false) {

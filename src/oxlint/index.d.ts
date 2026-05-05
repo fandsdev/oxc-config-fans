@@ -43,19 +43,21 @@ export interface OxcConfigFansDefineOxlintOptions {
 
 	/**
 	 * Enable React-specific lint rules.
+	 * React Compiler rules (enabled by default when react is active).
 	 *
 	 * @link https://oxc.rs/docs/guide/usage/linter/plugins#react
 	 * @default false
 	 */
-	react?: boolean
+	react?: boolean | { compiler?: boolean }
 
 	/**
 	 * Enable Next.js-specific lint rules.
+	 * React Compiler rules (enabled by default when nextjs is active).
 	 *
 	 * @link https://oxc.rs/docs/guide/usage/linter/plugins#nextjs
 	 * @default false
 	 */
-	nextjs?: boolean
+	nextjs?: boolean | { compiler?: boolean }
 
 	/**
 	 * Enable TanStack Query lint rules.
