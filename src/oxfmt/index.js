@@ -56,10 +56,5 @@ export function defineConfig(options = {}, overrides = {}) {
 		...overrides,
 	}
 
-	// Temporary workaround caused by https://github.com/oxc-project/oxc/pull/21919
-	if (config.sortTailwindcss === false) {
-		delete config.sortTailwindcss
-	}
-
 	return defineOxfmtConfig(config)
 }
