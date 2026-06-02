@@ -1,6 +1,6 @@
 import type { OxlintConfig } from 'oxlint'
 
-export interface OxcConfigFansDefineOxlintOptions {
+export interface DefineConfigOptions {
 	/**
 	 * Glob patterns for files and directories to ignore.
 	 *
@@ -109,6 +109,4 @@ export interface OxcConfigFansDefineOxlintOptions {
  *
  * @param options - Plugin toggles and config overrides.
  */
-export function defineConfig(
-	options?: OxcConfigFansDefineOxlintOptions,
-): OxlintConfig
+export function defineConfig(options?: DefineConfigOptions): OxlintConfig
