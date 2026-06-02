@@ -24,8 +24,8 @@
     "test:lint": "oxlint",
     "test:dedupe": "pnpm dedupe --check",
     "test": "pnpm run /^test:/",
-    "build": "tsx scripts/oxgen.ts",
-    "check:react-compiler": "tsx scripts/check-react-compiler-rules.ts",
+    "build": "node --experimental-strip-types scripts/oxgen.ts",
+    "check:react-compiler": "node --experimental-strip-types scripts/check-react-compiler-rules.ts",
     "format": "oxfmt"
   },
   "devDependencies": {
@@ -43,7 +43,6 @@
     "oxlint": "^1.68.0",
     "oxlint-tsgolint": "^0.23.0",
     "simple-git-hooks": "^2.13.1",
-    "tsx": "^4.22.4",
     "typescript": "^6.0.3"
   },
   "peerDependencies": {
