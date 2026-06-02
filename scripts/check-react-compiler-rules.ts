@@ -17,7 +17,18 @@ const compilerRules = Object.keys(recommended).filter(
 const res = await fetch(
 	'https://raw.githubusercontent.com/oxc-project/oxc/main/tasks/lint_rules/src/unsupported-rules.json',
 )
-const { unsupportedRules } = await res.json()
+const data: unknown = JSON.parse(await res.text())
+if (
+	typeof data !== 'object' ||
+	data === null ||
+	!('unsupportedRules' in data)
+) {
+	throw new Error('Unexpected response shape')
+}
+const { unsupportedRules } = data as { unsupportedRules: unknown }
+if (typeof unsupportedRules !== 'object' || unsupportedRules === null) {
+	throw new Error('Unexpected unsupportedRules shape')
+}
 const oxlintUnsupported = new Set(
 	Object.keys(unsupportedRules).map(k => k.replace('react/', 'react-hooks/')),
 )
