@@ -24,5 +24,6 @@ const oxlintUnsupported = new Set(
 
 for (const rule of compilerRules) {
 	const status = oxlintUnsupported.has(rule) ? 'unsupported' : 'UNKNOWN'
+	// oxlint-disable-next-line no-console
 	console.log(status, rule, recommended[rule])
 }

@@ -40,7 +40,9 @@ function createReporter() {
 			skipped[cat].push(rule),
 		removeSkipped: (rule: string, cat: RuleSkippedCategory) => {
 			const i = skipped[cat].indexOf(rule)
-			if (i !== -1) skipped[cat].splice(i, 1)
+			if (i !== -1) {
+				skipped[cat].splice(i, 1)
+			}
 		},
 		getSkippedRulesByCategory: () => skipped,
 	}
@@ -109,6 +111,7 @@ writeFileSync(
 	markdown,
 	'utf8',
 )
+// oxlint-disable-next-line no-console
 console.log(
 	`✅ Generated UNSUPPORTED-RULES.md (${u.length} unsupported, ${n.length} nursery)`,
 )
